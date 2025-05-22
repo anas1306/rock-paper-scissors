@@ -126,7 +126,7 @@ scissors.addEventListener("click", () => {
         const result = playRound(`${scissors.textContent}`, getComputerChoice());
         const resultText = document.createElement("div");
         resultText.textContent = result;
-        if (result === "You win! Scissors beats Paper.") {
+        if (result === "You win! Scissors beat Paper.") {
             resultText.classList.add("win");
             box.appendChild(resultText);
             won = won + 1;
