@@ -89,36 +89,52 @@ rock.addEventListener("click", () => {
     }
 })
 paper.addEventListener("click", () => {
-    const result = playRound(`${paper.textContent}`, getComputerChoice());
-    const resultText = document.createElement("div");
-    resultText.textContent = result;
-    if (result === "You win! Paper beats Rock.") {
-        resultText.classList.add("win");
-        box.appendChild(resultText);
-        won = won + 1;
-    } else if (result === "You lose! Scissors beats Paper.") {
-        resultText.classList.add("lose");
-        box.appendChild(resultText);
-        lost = lost + 1;
+    if (won === 5) {
+        win()
+        won = 0;
+    } else if (lost === 5) {
+        lose()
+        lost = 0;
     } else {
-        resultText.classList.add("draw");
-        box.appendChild(resultText);
+        const result = playRound(`${paper.textContent}`, getComputerChoice());
+        const resultText = document.createElement("div");
+        resultText.textContent = result;
+        if (result === "You win! Paper beats Rock.") {
+            resultText.classList.add("win");
+            box.appendChild(resultText);
+            won = won + 1;
+        } else if (result === "You lose! Scissors beats Paper.") {
+            resultText.classList.add("lose");
+            box.appendChild(resultText);
+            lost = lost + 1;
+        } else {
+            resultText.classList.add("draw");
+            box.appendChild(resultText);
+        }
     }
 })
 scissors.addEventListener("click", () => {
-    const result = playRound(`${scissors.textContent}`, getComputerChoice());
-    const resultText = document.createElement("div");
-    resultText.textContent = result;
-    if (result === "You win! Scissors beats Paper.") {
-        resultText.classList.add("win");
-        box.appendChild(resultText);
-        won = won + 1;
-    } else if (result === "You lose! Rock beats Scissors.") {
-        resultText.classList.add("lose");
-        box.appendChild(resultText);
-        lost = lost + 1;
+    if (won === 5) {
+        win()
+        won = 0;
+    } else if (lost === 5) {
+        lose()
+        lost = 0;
     } else {
-        resultText.classList.add("draw")
-        box.appendChild(resultText)
+        const result = playRound(`${scissors.textContent}`, getComputerChoice());
+        const resultText = document.createElement("div");
+        resultText.textContent = result;
+        if (result === "You win! Scissors beats Paper.") {
+            resultText.classList.add("win");
+            box.appendChild(resultText);
+            won = won + 1;
+        } else if (result === "You lose! Rock beats Scissors.") {
+            resultText.classList.add("lose");
+            box.appendChild(resultText);
+            lost = lost + 1;
+        } else {
+            resultText.classList.add("draw")
+            box.appendChild(resultText)
+        }
     }
 })
