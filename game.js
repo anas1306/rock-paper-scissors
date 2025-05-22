@@ -65,27 +65,27 @@
  function getComputerChoice() {
      randomNum = Math.random()
      if (randomNum < 0.33) {
-         computerChoice = "rock";
+         computerChoice = "Rock";
      } else if (randomNum >= 0.33 && randomNum <= 0.66) {
-         computerChoice = "paper";
+         computerChoice = "Paper";
      } else if (randomNum > 0.66) {
-         computerChoice = "scissors";
+         computerChoice = "Scissors";
      }
      return computerChoice;
  }
 
  function playRound(humanChoice, computerChoice) {
-    if (humanChoice === "rock" && computerChoice === "scissors") {
+    if (humanChoice === "Rock" && computerChoice === "Scissors") {
         winner = "You win! Rock beats Scissors.";
-    } else if (humanChoice === "rock" && computerChoice === "paper") {
+    } else if (humanChoice === "Rock" && computerChoice === "Paper") {
         winner = "You lose! Paper beats Rock.";
-    } else if (humanChoice === "scissors" && computerChoice === "paper") {
+    } else if (humanChoice === "Scissors" && computerChoice === "Paper") {
         winner = "You win! Scissors beat Paper.";
-    } else if (humanChoice === "scissors" && computerChoice === "rock") {
+    } else if (humanChoice === "Scissors" && computerChoice === "Rock") {
         winner = "You lose! Rock beats Scissors.";
-    } else if (humanChoice === "paper" && computerChoice === "rock") {
+    } else if (humanChoice === "Paper" && computerChoice === "Rock") {
         winner = "You win! Paper beats Rock.";
-    } else if (humanChoice === "paper" && computerChoice === "scissors") {
+    } else if (humanChoice === "Paper" && computerChoice === "Scissors") {
         winner = "You lose! Scissors beats Paper.";
     } else {
         winner = `Draw! You both chose ${humanChoice}.`;
@@ -93,4 +93,69 @@
     return winner;
 }
 
+const box = document.querySelector(".resultBox");
+
+const rock = document.querySelector("#choice1");
+const paper = document.querySelector("#choice2");
+const scissors = document.querySelector("#choice3");
+
+rock.addEventListener("click", () => {
+
+    const result = playRound(`${rock.textContent}`, getComputerChoice());
+
+    const resultText = document.createElement("div");
+    resultText.textContent = result;
+
+    if (result === "You win! Rock beats Scissors.") {
+        resultText.classList.add("win")
+        box.appendChild(resultText)
+    } else if (result === "You lose! Paper beats Rock.") {
+        resultText.classList.add("lose")
+        box.appendChild(resultText)
+    } else {
+        resultText.classList.add("draw")
+        box.appendChild(resultText)
+    }
+
+})
+
+paper.addEventListener("click", () => {
+
+    const result = playRound(`${paper.textContent}`, getComputerChoice());
+
+    const resultText = document.createElement("div");
+    resultText.textContent = result;
+
+    if (result === "You win! Paper beats Rock.") {
+        resultText.classList.add("win")
+        box.appendChild(resultText)
+    } else if (result === "You lose! Scissors beats Paper.") {
+        resultText.classList.add("lose")
+        box.appendChild(resultText)
+    } else {
+        resultText.classList.add("draw")
+        box.appendChild(resultText)
+    }
+
+})
+
+scissors.addEventListener("click", () => {
+    
+    const result = playRound(`${scissors.textContent}`, getComputerChoice());
+
+    const resultText = document.createElement("div");
+    resultText.textContent = result;
+
+    if (result === "You win! Scissors beats Paper.") {
+        resultText.classList.add("win")
+        box.appendChild(resultText)
+    } else if (result === "You lose! Rock beats Scissors.") {
+        resultText.classList.add("lose")
+        box.appendChild(resultText)
+    } else {
+        resultText.classList.add("draw")
+        box.appendChild(resultText)
+    }
+
+})
 

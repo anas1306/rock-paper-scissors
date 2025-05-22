@@ -28,7 +28,7 @@ body {
     align-items: center;
 }
 
-.choice {
+#choice1, #choice2, #choice3 {
     background-color: #332940;
     color: white;
     font-family: 'Roboto';
@@ -44,11 +44,23 @@ body {
     display: flex;
     flex-direction: column;
     font-family: 'Roboto';
-    background-color:#332940;
+    font-size: 15px;
     color: white;
-    padding: 5px;
+    padding: 5px 0px 5px 0px;
 }
 
 .results {
-    font-size: 15px;
+    background-color: #332940;
+}
+
+.win {
+    background-color: #00cf00;
+}
+
+.lose {
+    background-color: #dd0000;
+}
+
+.draw {
+    background-color: gray;
 }
