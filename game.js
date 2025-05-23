@@ -94,8 +94,10 @@ paper.addEventListener("click", () => {
     if (won === 5) {
         win()
         won = 0;
+        lost = 0;
     } else if (lost === 5) {
         lose()
+        won = 0;
         lost = 0;
     } else {
         const result = playRound(`${paper.textContent}`, getComputerChoice());
@@ -119,8 +121,10 @@ scissors.addEventListener("click", () => {
     if (won === 5) {
         win()
         won = 0;
+        lost = 0;
     } else if (lost === 5) {
         lose()
+        won = 0;
         lost = 0;
     } else {
         const result = playRound(`${scissors.textContent}`, getComputerChoice());
